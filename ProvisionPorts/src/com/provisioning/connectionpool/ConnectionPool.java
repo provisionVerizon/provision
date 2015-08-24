@@ -14,6 +14,7 @@ public class ConnectionPool {
 	  int counter=0;
 	  while(counter < Configuration.getInsatance().DB_MAX_CONNECTIONS)
 		  availableConnections.add(createConnection());
+	  counter++;
   }
   private Boolean poolHasMoreConnections()
   {

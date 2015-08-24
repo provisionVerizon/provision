@@ -31,6 +31,21 @@ public class DSLAMDAO {
 				
 			}
 		}
+		public DSLAM createRequiredDslam(String dslamid)
+		{
+			DSLAM dslambean=new DSLAM();
+			PonCardDAO poncard=new PonCardDAO();
+			DataCardDAO datacard=new DataCardDAO();
+			VoiceCardDAO voicecard=new VoiceCardDAO();
+			VideoCardDAO videocard=new VideoCardDAO();
+			dslambean.setDSLAM_ID(dslamid);
+			dslambean.setVoice(voicecard.createVoiceCards(con, dslamid));
+			dslambean.setVideo(videocard.createVideoeCards(con, dslamid));
+			dslambean.setDc(datacard.createDataCard(con, dslamid));
+			dslambean.setPoncard(poncard.createPonCards(con, dslamid));
+			return dslambean;
+		}
+		
 		public DSLAM createRequiredDslam(HashMap<String,String> mydslam)
 		{
 			DSLAM dslambean=new DSLAM();

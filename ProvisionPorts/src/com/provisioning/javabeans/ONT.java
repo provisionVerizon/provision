@@ -4,7 +4,8 @@ public class ONT {
 
 		private String ONT_ID;
 		private String STATUS;
-		private Customer customer;
+		private PonPort pp;	// check if needed
+		//private Customer customer;   // check if needed
 		/**
 		 * @return the oNT_ID
 		 */
@@ -30,17 +31,18 @@ public class ONT {
 			STATUS = sTATUS;
 		}
 		/**
-		 * @return the customer
+		 * @return the pp
 		 */
-		public Customer getCustomer() {
-			return customer;
+		public PonPort getPp() {
+			return pp;
 		}
 		/**
-		 * @param customer the customer to set
+		 * @param pp the pp to set
 		 */
-		public void setCustomer(Customer customer) {
-			this.customer = customer;
+		public void setPp(PonPort pp) {
+			this.pp = pp;
 		}
+		
 		
 		
 		

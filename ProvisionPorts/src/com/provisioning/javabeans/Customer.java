@@ -10,6 +10,12 @@ public class Customer {
 		private String CITY;
 		private String STATE;
 		private String COUNTRY;
+		private ONT ont;
+		private VoicePort vp;
+		private VideoCard vc;
+		private DataCard dc;
+		private PonPort pp;
+		
 		/**
 		 * @return the cUSTOMER_ID
 		 */
@@ -109,6 +115,66 @@ public class Customer {
 		
 		public String toString()
 		{
-			return "got the customer object modify toString to get details ";
+			return "got the customer bean modify toString to get details ";
+		}
+		/**
+		 * @return the ont
+		 */
+		public ONT getOnt() {
+			return ont;
+		}
+		/**
+		 * @param ont the ont to set
+		 */
+		public void setOnt(ONT ont) {
+			this.ont = ont;
+		}
+		/**
+		 * @return the vp
+		 */
+		public VoicePort getVp() {
+			return vp;
+		}
+		/**
+		 * @param vp the vp to set
+		 */
+		public void setVp(VoicePort vp) {
+			this.vp = vp;
+		}
+		/**
+		 * @return the vc
+		 */
+		public VideoCard getVc() {
+			return vc;
+		}
+		/**
+		 * @param vc the vc to set
+		 */
+		public void setVc(VideoCard vc) {
+			this.vc = vc;
+		}
+		/**
+		 * @return the dc
+		 */
+		public DataCard getDc() {
+			return dc;
+		}
+		/**
+		 * @param dc the dc to set
+		 */
+		public void setDc(DataCard dc) {
+			this.dc = dc;
+		}
+		/**
+		 * @return the pp
+		 */
+		public PonPort getPp() {
+			return pp;
+		}
+		/**
+		 * @param pp the pp to set
+		 */
+		public void setPp(PonPort pp) {
+			this.pp = pp;
 		}
 }

@@ -5,6 +5,7 @@ public class DataCard {
 	private String DATACARD_ID;
 	private int CAPACITY_ALLOCATED;
 	private PonPort pp;
+	private String STATUS;
 	/**
 	 * @return the dATACARD_ID
 	 */
@@ -40,6 +41,18 @@ public class DataCard {
 	 */
 	public void setPp(PonPort pp) {
 		this.pp = pp;
+	}
+	/**
+	 * @return the sTATUS
+	 */
+	public String getSTATUS() {
+		return STATUS;
+	}
+	/**
+	 * @param sTATUS the sTATUS to set
+	 */
+	public void setSTATUS(String sTATUS) {
+		STATUS = sTATUS;
 	}
 	
 	
