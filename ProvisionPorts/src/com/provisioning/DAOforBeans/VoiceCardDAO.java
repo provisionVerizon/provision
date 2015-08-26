@@ -10,13 +10,11 @@ import com.provisioning.javabeans.VoiceCard;
 import com.provisioning.javabeans.VoicePort;
 
 public class VoiceCardDAO {
-	
-	VoiceCard vc;
+
 	ArrayList<VoiceCard> voicecardlist; 
 	
 	public VoiceCardDAO()
 	{
-		vc=new VoiceCard();
 		voicecardlist=new ArrayList<VoiceCard>();
 	}
 	
@@ -30,14 +28,17 @@ public class VoiceCardDAO {
 			ResultSet rs=pst.executeQuery();
 			while(rs.next())
 			{
+				VoiceCard vc=new VoiceCard();
 				String voicecardid=rs.getString("VOICE_CARD_ID");
-				PreparedStatement pst1=con.prepareStatement("SELECT VOICE_PORT_ID,STATUS FROM VOICE_PORT WHERE VOICE_CARD_ID=?");
+				PreparedStatement pst1=con.prepareStatement("SELECT VOICE_PORT_ID,STATUS FROM VOICECARDPORT WHERE VOICE_CARD_ID=?");
 				pst1.setString(1, voicecardid);
 				ResultSet rs1=pst1.executeQuery();
-				VoicePort [] voiceportarray=new VoicePort[2];
+				VoicePort [] voiceportarray=new VoicePort[4];
+				for(int j=0;j<voiceportarray.length;j++)
+					voiceportarray[j]=new VoicePort();
+				int i=0;
 				while(rs1.next())
 				{
-					int i=0;
 					voiceportarray[i].setVOICE_PORT_ID(rs1.getString("VOICE_PORT_ID"));
 					voiceportarray[i].setSTATUS(rs1.getString("STATUS"));
 					i++;

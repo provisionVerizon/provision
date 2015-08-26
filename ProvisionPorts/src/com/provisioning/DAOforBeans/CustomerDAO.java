@@ -12,7 +12,7 @@ import com.provisioning.javabeans.ONT;
 import com.provisioning.javabeans.PonPort;
 import com.provisioning.javabeans.VideoCard;
 import com.provisioning.javabeans.VoicePort;
-
+// CUSTOMER TABLE NEEDS UPDATION 
 public class CustomerDAO {
 	Customer c;
 	ONT ont;
@@ -50,14 +50,13 @@ public class CustomerDAO {
 	{
 		try
 		{
-			PreparedStatement pst=con.prepareStatement("select CUSTOMER_ID,CUSTOMER_NAME,CUSTOMER_TYPE,STREETNAME,ZIPCODE,CITY,STATE,COUNTRY from customer where CUSTOMER_ID=?");
+			PreparedStatement pst=con.prepareStatement("select CUSTOMER_ID,FIRST_NAME,LAST_NAME,TYPE,STREETNAME,ZIPCODE,CITY,STATE,COUNTRY,STATUS from customer where CUSTOMER_ID=?");
 			pst.setString(1, customerid);
 			ResultSet rs=pst.executeQuery();
 			while(rs.next())
 			{
 				c.setCUSTOMER_ID(rs.getString("CUSTOMER_ID"));
-				c.setCUSTOMER_NAME(rs.getString("CUSTOMER_NAME"));
-				c.setCUSTOMER_TYPE(rs.getString("CUSTOMER_TYPE"));
+				c.setFIRST_NAME(rs.getString(""));
 				c.setSTREETNAME(rs.getString("STREETNAME"));
 				c.setZIPCODE(Integer.parseInt(rs.getString("ZIPCODE")));
 				c.setCITY(rs.getString("CITY"));
@@ -93,7 +92,7 @@ public class CustomerDAO {
 			 ResultSet rs=pst.executeQuery();
 			 if(rs.next())
 			 {
-				 PreparedStatement pst1=con.prepareStatement("select STATUS from PON_PORT where PON_PORT_ID=?");
+				 PreparedStatement pst1=con.prepareStatement("select STATUS from PONPORT where PON_PORT_ID=?");
 				 pst.setString(1, rs.getString("PON_PORT_ID"));
 				 ResultSet rs1=pst.executeQuery();
 				 pp.setPON_PORT_ID(rs.getString("PON_PORT_ID"));

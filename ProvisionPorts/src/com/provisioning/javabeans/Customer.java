@@ -1,21 +1,27 @@
 package com.provisioning.javabeans;
 
+// customer table needs to be updated according  to the json string from om  
 public class Customer {
 
 		private String CUSTOMER_ID;
-		private String CUSTOMER_NAME;
-		private String CUSTOMER_TYPE;
+		private String FIRST_NAME;
+		private String LAST_NAME;
+		private String TYPE;
 		private String STREETNAME;
 		private int ZIPCODE;
 		private String CITY;
 		private String STATE;
 		private String COUNTRY;
+		private String STATUS;
 		private ONT ont;
 		private VoicePort vp;
 		private VideoCard vc;
 		private DataCard dc;
 		private PonPort pp;
-		
+		//need another table with producuct_id customer id 
+		// another table with service_id customer_id
+		// private string service name;
+		// private string product id
 		/**
 		 * @return the cUSTOMER_ID
 		 */
@@ -28,33 +34,43 @@ public class Customer {
 		public void setCUSTOMER_ID(String cUSTOMER_ID) {
 			CUSTOMER_ID = cUSTOMER_ID;
 		}
+	
 		/**
-		 * @return the cUSTOMER_NAME
+		 * @return the fIRST_NAME
 		 */
-		public String getCUSTOMER_NAME() {
-			return CUSTOMER_NAME;
+		public String getFIRST_NAME() {
+			return FIRST_NAME;
 		}
 		/**
-		 * @param cUSTOMER_NAME the cUSTOMER_NAME to set
+		 * @param fIRST_NAME the fIRST_NAME to set
 		 */
-		public void setCUSTOMER_NAME(String cUSTOMER_NAME) {
-			CUSTOMER_NAME = cUSTOMER_NAME;
+		public void setFIRST_NAME(String fIRST_NAME) {
+			FIRST_NAME = fIRST_NAME;
 		}
 		/**
-		 * @return the cUSTOMER_TYPE
+		 * @return the lAST_NAME
 		 */
-		public String getCUSTOMER_TYPE() {
-			return CUSTOMER_TYPE;
+		public String getLAST_NAME() {
+			return LAST_NAME;
 		}
 		/**
-		 * @param cUSTOMER_TYPE the cUSTOMER_TYPE to set
+		 * @param lAST_NAME the lAST_NAME to set
 		 */
-		public void setCUSTOMER_TYPE(String cUSTOMER_TYPE) {
-			CUSTOMER_TYPE = cUSTOMER_TYPE;
+		public void setLAST_NAME(String lAST_NAME) {
+			LAST_NAME = lAST_NAME;
 		}
 		/**
-		 * @return the sTREETNAME
+		 * @return the tYPE
 		 */
+		public String getTYPE() {
+			return TYPE;
+		}
+		/**
+		 * @param tYPE the tYPE to set
+		 */
+		public void setTYPE(String tYPE) {
+			TYPE = tYPE;
+		}
 		public String getSTREETNAME() {
 			return STREETNAME;
 		}

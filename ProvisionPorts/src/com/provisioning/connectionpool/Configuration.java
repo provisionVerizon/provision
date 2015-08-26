@@ -25,7 +25,7 @@ public class Configuration {
 		DB_DRIVER="oracle.jdbc.driver.OracleDriver";
 		DB_URL="jdbc:oracle:thin:@localhost:1521:xe";
 		DB_USERNAME="HR";
-		DB_PASSWORD="tiger";
+		DB_PASSWORD="password";
 		DB_MAX_CONNECTIONS=10;
 	}
 	

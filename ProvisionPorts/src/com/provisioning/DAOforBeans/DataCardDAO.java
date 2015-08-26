@@ -7,24 +7,26 @@ import java.sql.SQLException;
 
 import com.provisioning.javabeans.DataCard;
 
+// modification in the data card table is required data card has to be a buffer
 public class DataCardDAO {
+
 	DataCard dc;
 	public DataCardDAO()
 	{
-		dc=new DataCard();
+		
 	}
 	
 	public DataCard createDataCard(Connection con,String dslamid)
 	{
 		try
 		{
-			PreparedStatement pst=con.prepareStatement("SELECT DATA_CARD_ID,CAPACITY,STATUS FROM DATACARD WHERE DSLAM_ID=?");
+			PreparedStatement pst=con.prepareStatement("SELECT DATACARD_ID,CAPACITY,STATUS FROM DATACARD WHERE DSLAM_ID=?");
 			pst.setString(1, dslamid);
 			ResultSet rs=pst.executeQuery();
 			while(rs.next())
 			{
+				dc.setDATACARD_ID(rs.getString("DATACARD_ID"));
 				dc.setCAPACITY_ALLOCATED(rs.getInt("CAPACITY"));
-				dc.setDATACARD_ID(rs.getString("DATA_CARD_ID"));
 			}
 		}
 		catch(SQLException e)

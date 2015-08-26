@@ -11,11 +11,10 @@ import com.provisioning.javabeans.VideoCard;
 
 public class VideoCardDAO {
 
-	VideoCard vc;
 	ArrayList<VideoCard> videocardlist;
 	
 	public VideoCardDAO() {
-		vc=new VideoCard();
+		
 		videocardlist=new ArrayList<VideoCard>();
 	}
 	
@@ -28,8 +27,8 @@ public class VideoCardDAO {
 			ResultSet rs=pst.executeQuery();
 			while(rs.next())
 			{
-				String videoportid=rs.getString("VIDEO_PORT_ID");
-			    vc.setVIDEO_CARD_ID(videoportid);
+				VideoCard vc=new VideoCard();
+			    vc.setVIDEO_CARD_ID(rs.getString("VIDEO_PORT_ID"));
 			    vc.setSTATUS(rs.getString("STATUS"));
 				videocardlist.add(vc);
 			}

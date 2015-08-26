@@ -6,11 +6,9 @@ import com.provisioning.javabeans.PonCard;
 import com.provisioning.javabeans.PonPort;
 
 public class PonCardDAO {
-	PonCard pc;
 	ArrayList<PonCard> poncardlist;
 	public PonCardDAO()
 	{
-		pc=new PonCard();
 		poncardlist=new ArrayList<PonCard>();
 	}
 	public ArrayList<PonCard> createPonCards(Connection con,String dslamid)
@@ -18,19 +16,20 @@ public class PonCardDAO {
 		
 		try
 		{
-			PreparedStatement pst=con.prepareStatement("SELECT PON_CARD_ID FROM PON WHERE DSLAM_ID=?");
+			PreparedStatement pst=con.prepareStatement("SELECT PON_ID FROM PON WHERE DSLAM_ID=?");
 			pst.setString(1, dslamid);
 			ResultSet rs=pst.executeQuery();
 			while(rs.next())
 			{
-				String poncardid=rs.getString("PON_CARD_ID");
-				PreparedStatement pst1=con.prepareStatement("SELECT PON_PORT_ID,STATUS FROM PON_PORT WHERE PON_CARD_ID=?");
+				PonCard pc=new PonCard();
+				String poncardid=rs.getString("PON_ID");
+				PreparedStatement pst1=con.prepareStatement("SELECT PON_PORT_ID,STATUS FROM PONPORT WHERE PON_CARD_ID=?");
 				pst1.setString(1, poncardid);
 				ResultSet rs1=pst1.executeQuery();
 				PonPort [] ponportarray=new PonPort[2];
+				int i=0;
 				while(rs1.next())
 				{
-					int i=0;
 					ponportarray[i].setPON_PORT_ID(rs1.getString("PON_PORT_ID"));
 					ponportarray[i].setSTATUS(rs1.getString("STATUS"));
 					i++;
